@@ -4,6 +4,19 @@ body {
 }
 
 .gifs {
+  box-sizing: border-box;
   width:16px;
   height:16px;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
 }
