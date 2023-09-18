@@ -3,6 +3,14 @@ body {
   color: white;
 }
 
+.links {
+  margin:6px;
+}
+
+.middle {
+  text-align:center;
+}
+
 .gifs {
   width:16px;
   height:16px;
