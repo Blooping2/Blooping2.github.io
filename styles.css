@@ -20,3 +20,24 @@ body {
   flex: 33.33%;
   padding: 5px;
 }
+
+a:link {
+  color: dodgerblue;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: fuchsia;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: chartreuse;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
