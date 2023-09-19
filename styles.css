@@ -17,12 +17,28 @@ body {
   height:16px;
 }
 
+.fart {
+  text-align:center;
+  margin:auto;
+}
+
+p.info {
+  margin: 6px;
+}
+
+h4.info {
+  margin: 6px;
+}
+
+
+
 * {
   box-sizing: border-box;
 }
 
 .row {
   display: flex;
+  align-items: center;
 }
 
 .column {
