@@ -26,16 +26,6 @@ body {
   border:2px solid yellow;
 }
 
-p.info {
-  margin: 6px;
-}
-
-h4.info {
-  margin: 6px;
-}
-
-
-
 * {
   box-sizing: border-box;
 }
