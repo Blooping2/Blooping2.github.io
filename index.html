@@ -17,7 +17,12 @@
         } else {
           localStorage.clickcount = 1;
         }
-        document.getElementById("result").innerHTML = alert(localStorage.clickcount);
+
+        if (Math.random() < 0.01) {
+          document.getElementById("result").innerHTML = alert('my button is better');
+        } else {
+          document.getElementById("result").innerHTML = alert(localStorage.clickcount);
+        }
       } else {
         document.getElementById("result").innerHTML = "skill issue";
       }
