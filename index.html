@@ -8,6 +8,22 @@
 <head>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/x-icon" href="/misc/favicon.ico">
+
+  <script>
+    function clickCounter() {
+      if (typeof(Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+          localStorage.clickcount = Number(localStorage.clickcount)+1;
+        } else {
+          localStorage.clickcount = 1;
+        }
+        document.getElementById("result").innerHTML = alert(localStorage.clickcount);
+      } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+      }
+    }
+  </script>
+
 </head>
 
 <body>
@@ -29,6 +45,12 @@
   </div>
 
   <div>
+    <p style="margin:6px;"><small>26th spetember 2023</small></p>
+    <p style="margin:6px;">if button is so good why isnt there a button tw-</p>
+    
+    <p><button onclick="clickCounter()" type="button">button 2</button>
+
+    <br>
     <p style="margin:6px;"><small>25th spetember 2023</small></p>
     <p style="margin:6px;"></p>
     <br>
