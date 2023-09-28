@@ -3,6 +3,10 @@ body {
   color: white;
 }
 
+.blog {
+  margin: 6px 180px;
+}
+
 .links {
   margin:6px;
 }
