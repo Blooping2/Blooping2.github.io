@@ -10,6 +10,8 @@
   <link rel="icon" type="image/x-icon" href="/misc/favicon.ico">
 
   <script>
+  shrink = 13;
+
     function clickCounter() {
       if (typeof(Storage) !== "undefined") {
         if (localStorage.clickcount) {
@@ -27,7 +29,14 @@
       }
     }
   </script>
-
+  <script>
+    function smol() {
+      shrink = shrink -1;
+      document.getElementById("b3").style.fontSize = shrink + "px";
+      document.getElementById("b3").style.border = shrink + "px";
+      document.getElementById("b3").style.padding = shrink + "px";
+    }
+  </script>
 </head>
 
 <body>
@@ -51,6 +60,13 @@
   </div>
 
   <div class="blog">
+    <div class="subtitle">
+      <p style="margin:6px;"><small>12th october 2023</small></p>
+    </div>
+
+    <br><button id="b3" onclick="smol()" type="button">button 3</button><br>
+
+    <br>
     <div class="subtitle">
       <p style="margin:6px;"><small>11th october 2023</small></p>
     </div>
