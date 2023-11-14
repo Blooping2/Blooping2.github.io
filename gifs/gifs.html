@@ -8,7 +8,92 @@
 <head>
   <link rel="stylesheet" href="../styles.css">
   <link rel="icon" type="image/x-icon" href="../misc/favicon.ico">
+
+<script>
+
+</script>
 </head>
+
+<style>
+.middle {
+  position: relative;
+  top: 40%;
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.right {
+  position: static;
+  top: 40%;
+  width: 100%;
+  text-align: right;
+  font-size: 18px;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  text-align:center;
+  margin:auto;
+}
+
+.smallbutton {
+  display: inline-block;
+  padding: 10px 18px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #04AA6D;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 9px #999;
+  text-align:center;
+  margin:auto;
+}
+
+.smallbutton:hover {background-color: #3e8e41}
+
+.smallbutton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.button4 {
+  top: 10000px;
+  position: relative;
+  display: block;
+}
+
+.cookieClicker {
+  top: 10000px;
+  position: relative;
+  display: none;
+}
+</style>
 
 <body>
 <div class="center">
@@ -36,7 +121,7 @@
 </div>
 
 <div class="gifs">
-  <div class="row">
+  <div class="gifRow">
     <img src="smileyspin.gif" alt="">
     <img src="smileyloop.gif" alt="">
     <img src="smileyloopfast.gif" alt="">
@@ -50,6 +135,306 @@
     <img src="smileyroll.gif" alt="">
   </div>
 </div>
+
+<div class="button4" id="button4">
+  <div class="middle">
+    <p><button onclick="found()" type="button">button 4</button>
+  </div>
+</div>
+
+
+<div class="cookieClicker" id="cookieClicker">
+  <div class="middle">
+    <button onclick="clickCounter2()" type="button" class="button">button</button>
+    <br><span>
+    <span id="demo"></span>
+    buttons
+    </span>
+  </div>
+
+  <div class="right">
+    <span>
+    <span id="clickupgrades"></span>
+    <span id="markiplier"></span>
+    buttons per click
+    <br>
+    <span id="cpsupgrades"></span>
+    <span id="fnaf"></span>
+    buttons per second
+    </span>
+  </div>
+  <br>
+  
+  <div class="row">
+    <div class="right">
+      <button onclick="clickUpgrade1()" type="button" class="smallbutton">+1 click<br><span>cost:<span id="cost1"></span></button>
+      <button onclick="autoClick1()" type="button" class="smallbutton">+1 cps<br><span>cost:<span id="cost2"></span></button>
+    </div>
+  </div><br>
+  <div class="row">
+    <div class="right">
+      <button onclick="clickUpgrade2()" type="button" class="smallbutton">+10 click<br><span>cost:<span id="cost3"></span></button>
+      <button onclick="autoClick2()" type="button" class="smallbutton">+20 cps<br><span>cost:<span id="cost4"></span></button>
+    </div>
+  </div><br>
+  <div class="row">
+    <div class="right">
+      <button onclick="clickUpgrade3()" type="button" class="smallbutton">+50 click<br><span>cost:<span id="cost5"></span></button>
+      <button onclick="autoClick3()" type="button" class="smallbutton">+200 cps<br><span>cost:<span id="cost6"></span></button>
+    </div>
+  </div><br>
+  <div class="row">
+    <div class="right">
+      <button onclick="clickUpgradeFinal()" type="button" class="smallbutton">big clicks<br><span>cost:<span id="cost7"></span></button>
+      <button onclick="autoClickFinal()" type="button" class="smallbutton">fast cps<br><span>cost:<span id="cost8"></span></button>
+    </div>
+  </div><br><br>
+  <div class="row">
+    <div class="right">
+      <button onclick="reset()" type="button" class="smallbutton">reset</button>
+      </div>
+  </div><br>
+</div>
+
+
+
+<script>
+
+if (localStorage.isVisible == 1) {
+  document.getElementById("button4").style.display = "none";
+  document.getElementById("cookieClicker").style.display = "block";
+}
+
+function found() {
+  localStorage.isVisible = 1;
+  document.getElementById("cookieClicker").style.display = "block";
+  alert('what have you done')
+  document.getElementById("button4").style.display = "none";
+
+  localStorage.clickcount2=0;
+  localStorage.clickupgrade=0;
+  localStorage.cpsupgrade=0;
+  localStorage.cpsSpeed=0;
+  localStorage.clickMultiplier=1;
+  document.getElementById("demo").innerHTML = localStorage.clickcount2;
+  document.getElementById("clickupgrades").innerHTML = Number(localStorage.clickupgrade) + 1;
+  document.getElementById("cpsupgrades").innerHTML = localStorage.cpsupgrade;
+  localStorage.price1 = 80;
+  localStorage.price2 = 700;
+  localStorage.price3 = 5000;
+  localStorage.price4 = 9000;
+  localStorage.price5 = 20000;
+  localStorage.price6 = 50000;
+  localStorage.price7 = 1000000;
+  localStorage.price8 = 2500000;
+  document.getElementById("cost1").innerHTML = localStorage.price1;
+  document.getElementById("cost2").innerHTML = localStorage.price2;
+  document.getElementById("cost3").innerHTML = localStorage.price3;
+  document.getElementById("cost4").innerHTML = localStorage.price4;
+  document.getElementById("cost5").innerHTML = localStorage.price5;
+  document.getElementById("cost6").innerHTML = localStorage.price6;
+  document.getElementById("cost7").innerHTML = localStorage.price7;
+  document.getElementById("cost8").innerHTML = localStorage.price8;
+  document.getElementById("markiplier").innerHTML = "";
+}
+
+if (localStorage.isVisible == 1) {
+  document.getElementById("cookieClicker").style.display = "block";
+}
+else {
+  document.getElementById("cookieClicker").style.display = "none";
+}
+
+
+
+
+if (localStorage.price7 == "sold out!") {
+  document.getElementById("markiplier").innerHTML = "* 2.5";
+}
+
+if (localStorage.price8 == "sold out!") {
+  document.getElementById("fnaf").innerHTML = "* 5";
+  localStorage.clickMultiplier = 2.5;
+}
+
+document.getElementById("demo").innerHTML = localStorage.clickcount2;
+document.getElementById("clickupgrades").innerHTML = Number(localStorage.clickupgrade) + 1;
+document.getElementById("cpsupgrades").innerHTML = localStorage.cpsupgrade;
+
+document.getElementById("cost1").innerHTML = localStorage.price1;
+document.getElementById("cost2").innerHTML = localStorage.price2;
+document.getElementById("cost3").innerHTML = localStorage.price3;
+document.getElementById("cost4").innerHTML = localStorage.price4;
+document.getElementById("cost5").innerHTML = localStorage.price5;
+document.getElementById("cost6").innerHTML = localStorage.price6;
+document.getElementById("cost7").innerHTML = localStorage.price7;
+document.getElementById("cost8").innerHTML = localStorage.price8;
+
+function clickUpgrade1() {
+  if (Number(localStorage.clickcount2) >= localStorage.price1) {
+
+    localStorage.clickcount2 = Number(localStorage.clickcount2) - localStorage.price1;
+    localStorage.clickupgrade=Number(localStorage.clickupgrade) + 1;
+    localStorage.price1 = Math.round(Number(localStorage.price1) * 1.25);
+
+    document.getElementById("clickupgrades").innerHTML = Number(localStorage.clickupgrade) + 1;
+    document.getElementById("cost1").innerHTML = localStorage.price1;
+    document.getElementById("demo").innerHTML = localStorage.clickcount2;
+  }
+}
+
+
+function clickUpgrade2() {
+  if (Number(localStorage.clickcount2) >= localStorage.price3) {
+
+    localStorage.clickcount2 = Number(localStorage.clickcount2) - localStorage.price3;
+    localStorage.clickupgrade=Number(localStorage.clickupgrade) + 10;
+    localStorage.price3 = Math.round(Number(localStorage.price3) * 1.25);
+
+    document.getElementById("clickupgrades").innerHTML = Number(localStorage.clickupgrade) + 1;
+    document.getElementById("cost3").innerHTML = localStorage.price3;
+    document.getElementById("demo").innerHTML = localStorage.clickcount2;
+  }
+}
+
+
+function clickUpgrade3() {
+  if (Number(localStorage.clickcount2) >= localStorage.price5) {
+
+    localStorage.clickcount2 = Number(localStorage.clickcount2) - localStorage.price5;
+    localStorage.clickupgrade=Number(localStorage.clickupgrade) + 50;
+    localStorage.price5 = Math.round(Number(localStorage.price5) * 1.25);
+
+    document.getElementById("clickupgrades").innerHTML = Number(localStorage.clickupgrade) + 1;
+    document.getElementById("cost5").innerHTML = localStorage.price5;
+    document.getElementById("demo").innerHTML = localStorage.clickcount2;
+  }
+}
+
+
+function autoClick1() {
+  if (Number(localStorage.clickcount2) >= localStorage.price2) {
+
+    localStorage.clickcount2 = Number(localStorage.clickcount2) - localStorage.price2;
+    localStorage.cpsupgrade=Number(localStorage.cpsupgrade) + 1;
+    localStorage.price2 = Math.round(Number(localStorage.price2) * 1.25);
+
+    document.getElementById("cpsupgrades").innerHTML = localStorage.cpsupgrade;
+    document.getElementById("cost2").innerHTML = localStorage.price2;
+    document.getElementById("demo").innerHTML = localStorage.clickcount2;
+  }
+}
+
+function autoClick2() {
+  if (Number(localStorage.clickcount2) >= localStorage.price4) {
+
+    localStorage.clickcount2 = Number(localStorage.clickcount2) - localStorage.price4;
+    localStorage.cpsupgrade=Number(localStorage.cpsupgrade) + 20;
+    localStorage.price4 = Math.round(Number(localStorage.price4) * 1.25);
+
+    document.getElementById("cpsupgrades").innerHTML = localStorage.cpsupgrade;
+    document.getElementById("cost4").innerHTML = localStorage.price4;
+    document.getElementById("demo").innerHTML = localStorage.clickcount2;
+  }
+}
+
+function autoClick3() {
+  if (Number(localStorage.clickcount2) >= localStorage.price6) {
+
+    localStorage.clickcount2 = Number(localStorage.clickcount2) - localStorage.price6;
+    localStorage.cpsupgrade=Number(localStorage.cpsupgrade) + 200;
+    localStorage.price6 = Math.round(Number(localStorage.price6) * 1.25);
+
+    document.getElementById("cpsupgrades").innerHTML = localStorage.cpsupgrade;
+    document.getElementById("cost6").innerHTML = localStorage.price6;
+    document.getElementById("demo").innerHTML = localStorage.clickcount2;
+  }
+}
+
+
+function clickUpgradeFinal() {
+  if (Number(localStorage.clickcount2) >= localStorage.price7) {
+
+    localStorage.clickcount2 = Number(localStorage.clickcount2) - localStorage.price7;
+    localStorage.clickMultiplier = 2.5;
+    
+    document.getElementById("cost7").innerHTML = "sold out!";
+    document.getElementById("markiplier").innerHTML = "* 2.5";
+    document.getElementById("demo").innerHTML = localStorage.clickcount2;
+    localStorage.price7= "sold out!";
+  }
+}
+
+
+function autoClickFinal() {
+  if (Number(localStorage.clickcount2) >= localStorage.price8) {
+    localStorage.clickcount2 = Number(localStorage.clickcount2) - localStorage.price8;
+    localStorage.cpsSpeed = 800;
+
+    document.getElementById("cost8").innerHTML = "sold out! (refresh the page)";
+    document.getElementById("fnaf").innerHTML = "* 5";
+    document.getElementById("demo").innerHTML = localStorage.clickcount2;
+    localStorage.price8= "sold out!";
+  }
+}
+
+
+function reset() {
+  localStorage.clickcount2=0;
+  localStorage.clickupgrade=0;
+  localStorage.cpsupgrade=0;
+  localStorage.cpsSpeed=0;
+  localStorage.clickMultiplier=1;
+  document.getElementById("demo").innerHTML = localStorage.clickcount2;
+  document.getElementById("clickupgrades").innerHTML = Number(localStorage.clickupgrade) + 1;
+  document.getElementById("cpsupgrades").innerHTML = localStorage.cpsupgrade;
+  localStorage.price1 = 80;
+  localStorage.price2 = 700;
+  localStorage.price3 = 5000;
+  localStorage.price4 = 9000;
+  localStorage.price5 = 20000;
+  localStorage.price6 = 50000;
+  localStorage.price7 = 1000000;
+  localStorage.price8 = 2500000;
+  document.getElementById("cost1").innerHTML = localStorage.price1;
+  document.getElementById("cost2").innerHTML = localStorage.price2;
+  document.getElementById("cost3").innerHTML = localStorage.price3;
+  document.getElementById("cost4").innerHTML = localStorage.price4;
+  document.getElementById("cost5").innerHTML = localStorage.price5;
+  document.getElementById("cost6").innerHTML = localStorage.price6;
+  document.getElementById("cost7").innerHTML = localStorage.price7;
+  document.getElementById("cost8").innerHTML = localStorage.price8;
+  document.getElementById("markiplier").innerHTML = "";
+}
+
+
+setInterval(function autoClicker() { 
+  localStorage.clickcount2 = Number(localStorage.clickcount2) + Number(localStorage.cpsupgrade);
+  document.getElementById("demo").innerHTML = localStorage.clickcount2;
+  if (localStorage.price8== "sold out!") {
+    localStorage.cpsSpeed=800;
+  }
+}, 1000 - Number(localStorage.cpsSpeed));
+
+
+function clickCounter2() {
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.clickcount2) {
+      localStorage.clickcount2 = (Number(localStorage.clickcount2)+Math.round((Number(localStorage.clickMultiplier)) * ((Number(localStorage.clickupgrade) + 1))));
+    } else {
+      document.getElementById("demo").innerHTML = 1;
+      localStorage.clickcount2 = 1;
+    }
+    if (Math.random() < 0) {
+      document.getElementById("result").innerHTML = alert('my button is better');
+    } else {
+      document.getElementById("demo").innerHTML = localStorage.clickcount2;
+    }
+  } else {
+    document.getElementById("result").innerHTML = "skill issue";
+  }
+}
+</script>
 
 </body>
 </html>

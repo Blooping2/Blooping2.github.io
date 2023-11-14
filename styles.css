@@ -19,7 +19,6 @@ body {
 }
 
 .gifs {
-  width:16px;
   height:16px;
 }
 
@@ -41,6 +40,13 @@ body {
   align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
+}
+
+.gifRow {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .column {
