@@ -1,6 +1,18 @@
+@font-face {
+  font-family: sansUndertale;
+  src: url(misc/ComicMono.ttf);
+  font.familyname = 'Comic Mono'
+  font.version = '0.1.1'
+  font.comment = 'https://github.com/dtinth/comic-mono-font'
+  font.copyright = 'https://github.com/dtinth/comic-mono-font/blob/master/LICENSE'
+}
+
 body {
   background-color:black;
   color: white;
+  font-family: sansUndertale, "couriernew", monospace;
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css">
+  letter-spacing: 0px;
 }
 
 .blog {
