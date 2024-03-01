@@ -1,5 +1,5 @@
 @font-face {
-  font-family: sansUndertale;
+  font-family: shannsUndertale;
   src: url(misc/ComicMono.ttf);
   font.familyname = 'Comic Mono'
   font.version = '0.1.1'
@@ -10,7 +10,7 @@
 body {
   background-color:black;
   color: white;
-  font-family: sansUndertale, "couriernew", monospace;
+  font-family: shannsUndertale, "couriernew", monospace;
   letter-spacing: 0px;
 }
 
