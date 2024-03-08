@@ -169,19 +169,19 @@
   <div class="row">
     <div class="right">
       <button onclick="clickUpgrade1()" type="button" class="smallbutton">+1 click<br><span>cost:<span id="cost1"></span></button>
-      <button onclick="autoClick1()" type="button" class="smallbutton">+1 cps<br><span>cost:<span id="cost2"></span></button>
+      <button onclick="autoClick1()" type="button" class="smallbutton">+5 cps<br><span>cost:<span id="cost2"></span></button>
     </div>
   </div><br>
   <div class="row">
     <div class="right">
       <button onclick="clickUpgrade2()" type="button" class="smallbutton">+10 click<br><span>cost:<span id="cost3"></span></button>
-      <button onclick="autoClick2()" type="button" class="smallbutton">+20 cps<br><span>cost:<span id="cost4"></span></button>
+      <button onclick="autoClick2()" type="button" class="smallbutton">+75 cps<br><span>cost:<span id="cost4"></span></button>
     </div>
   </div><br>
   <div class="row">
     <div class="right">
       <button onclick="clickUpgrade3()" type="button" class="smallbutton">+50 click<br><span>cost:<span id="cost5"></span></button>
-      <button onclick="autoClick3()" type="button" class="smallbutton">+200 cps<br><span>cost:<span id="cost6"></span></button>
+      <button onclick="autoClick3()" type="button" class="smallbutton">+525 cps<br><span>cost:<span id="cost6"></span></button>
     </div>
   </div><br>
   <div class="row">
@@ -189,14 +189,18 @@
       <button onclick="clickUpgradeFinal()" type="button" class="smallbutton">big clicks<br><span>cost:<span id="cost7"></span></button>
       <button onclick="autoClickFinal()" type="button" class="smallbutton">fast cps<br><span>cost:<span id="cost8"></span></button>
     </div>
+  </div><br>
+  <div class="row">
+    <div class="right">
+      <button onclick="theBigOne()" type="button" class="smallbutton">the big one<br><span>cost:<span id="cost9"></span></button>
+    </div>
   </div><br><br>
   <div class="row">
     <div class="right">
       <button onclick="reset()" type="button" class="smallbutton">reset</button>
-      </div>
+    </div>
   </div><br>
 </div>
-
 
 
 <script>
@@ -228,6 +232,7 @@ function found() {
   localStorage.price6 = 50000;
   localStorage.price7 = 1000000;
   localStorage.price8 = 2500000;
+  localStorage.price9 = 100000000;
   document.getElementById("cost1").innerHTML = localStorage.price1;
   document.getElementById("cost2").innerHTML = localStorage.price2;
   document.getElementById("cost3").innerHTML = localStorage.price3;
@@ -236,7 +241,9 @@ function found() {
   document.getElementById("cost6").innerHTML = localStorage.price6;
   document.getElementById("cost7").innerHTML = localStorage.price7;
   document.getElementById("cost8").innerHTML = localStorage.price8;
+  document.getElementById("cost9").innerHTML = localStorage.price9;
   document.getElementById("markiplier").innerHTML = "";
+  document.getElementById("fnaf").innerHTML = "";
 }
 
 if (localStorage.isVisible == 1) {
@@ -247,15 +254,14 @@ else {
 }
 
 
-
-
 if (localStorage.price7 == "sold out!") {
   document.getElementById("markiplier").innerHTML = "* 2.5";
+  localStorage.clickMultiplier = 2.5;
 }
 
 if (localStorage.price8 == "sold out!") {
   document.getElementById("fnaf").innerHTML = "* 5";
-  localStorage.clickMultiplier = 2.5;
+  localStorage.cpsSpeed = 800;
 }
 
 document.getElementById("demo").innerHTML = localStorage.clickcount2;
@@ -270,6 +276,7 @@ document.getElementById("cost5").innerHTML = localStorage.price5;
 document.getElementById("cost6").innerHTML = localStorage.price6;
 document.getElementById("cost7").innerHTML = localStorage.price7;
 document.getElementById("cost8").innerHTML = localStorage.price8;
+document.getElementById("cost9").innerHTML = localStorage.price9;
 
 function clickUpgrade1() {
   if (Number(localStorage.clickcount2) >= localStorage.price1) {
@@ -317,7 +324,7 @@ function autoClick1() {
   if (Number(localStorage.clickcount2) >= localStorage.price2) {
 
     localStorage.clickcount2 = Number(localStorage.clickcount2) - localStorage.price2;
-    localStorage.cpsupgrade=Number(localStorage.cpsupgrade) + 1;
+    localStorage.cpsupgrade=Number(localStorage.cpsupgrade) + 5;
     localStorage.price2 = Math.round(Number(localStorage.price2) * 1.25);
 
     document.getElementById("cpsupgrades").innerHTML = localStorage.cpsupgrade;
@@ -330,7 +337,7 @@ function autoClick2() {
   if (Number(localStorage.clickcount2) >= localStorage.price4) {
 
     localStorage.clickcount2 = Number(localStorage.clickcount2) - localStorage.price4;
-    localStorage.cpsupgrade=Number(localStorage.cpsupgrade) + 20;
+    localStorage.cpsupgrade=Number(localStorage.cpsupgrade) + 75;
     localStorage.price4 = Math.round(Number(localStorage.price4) * 1.25);
 
     document.getElementById("cpsupgrades").innerHTML = localStorage.cpsupgrade;
@@ -343,7 +350,7 @@ function autoClick3() {
   if (Number(localStorage.clickcount2) >= localStorage.price6) {
 
     localStorage.clickcount2 = Number(localStorage.clickcount2) - localStorage.price6;
-    localStorage.cpsupgrade=Number(localStorage.cpsupgrade) + 200;
+    localStorage.cpsupgrade=Number(localStorage.cpsupgrade) + 525;
     localStorage.price6 = Math.round(Number(localStorage.price6) * 1.25);
 
     document.getElementById("cpsupgrades").innerHTML = localStorage.cpsupgrade;
@@ -379,6 +386,19 @@ function autoClickFinal() {
   }
 }
 
+function theBigOne() {
+  if (Number(localStorage.clickcount2) >= localStorage.price9) {
+    localStorage.clickcount2 = Number(localStorage.clickcount2) - localStorage.price9;
+
+    document.getElementById("cost9").innerHTML = "sold out!";
+    alert('yeah uh you win cool heres your prize')
+    alert('...')
+    alert('yeah there isnt a prize yet')
+    document.getElementById("demo").innerHTML = localStorage.clickcount2;
+    localStorage.price9= "sold out!";
+  }
+}
+
 
 function reset() {
   localStorage.clickcount2=0;
@@ -397,6 +417,7 @@ function reset() {
   localStorage.price6 = 50000;
   localStorage.price7 = 1000000;
   localStorage.price8 = 2500000;
+  localStorage.price9 = 100000000;
   document.getElementById("cost1").innerHTML = localStorage.price1;
   document.getElementById("cost2").innerHTML = localStorage.price2;
   document.getElementById("cost3").innerHTML = localStorage.price3;
@@ -405,7 +426,9 @@ function reset() {
   document.getElementById("cost6").innerHTML = localStorage.price6;
   document.getElementById("cost7").innerHTML = localStorage.price7;
   document.getElementById("cost8").innerHTML = localStorage.price8;
+  document.getElementById("cost9").innerHTML = localStorage.price9;
   document.getElementById("markiplier").innerHTML = "";
+  document.getElementById("fnaf").innerHTML = "";
 }
 
 
